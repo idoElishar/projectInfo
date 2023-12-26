@@ -4,7 +4,6 @@ services:
 
   server: 
     container_name: server-demo
-    restart: always
     build:
       context: ./server
       dockerfile: Dockerfile
@@ -29,7 +28,6 @@ services:
 
   client:
     container_name: client-demo
-    restart: always
     build:
       context: ./client
       dockerfile: Dockerfile
