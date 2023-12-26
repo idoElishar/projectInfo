@@ -2,11 +2,11 @@ FROM node:20-alpine3.19 as builder
 
 WORKDIR /client
 
-COPY package*.json ./
+COPY ./app/package*.json ./
 
 RUN npm install --frozen-package-lock.json
 
-COPY . .
+COPY ./app .
 
 EXPOSE 8000
 
