@@ -1,16 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Courses from "../../courses/pages/Courses";
+// import Courses from "../../courses/pages/Courses";
 import Course from "../../courses/pages/Course";
 import Teacher from "../../users/pages/teachers/Teacher";
 import CustomizedTables from "../../users/pages/students/StudentsInCourse";
 import Student from "../../users/pages/students/Student";
-import Header from "../layout/Header";
+// import Header from "../layout/Header";
+import MainCourse from "../../courses/pages/MainCourse";
 function MyRouter(): JSX.Element {
   return (
     <Router>
-      <Header />
+      {/* <Header /> */}
       <Routes>
-        <Route path="/" element={<Courses />} />
+        {/* <Route path="/" element={<Courses />} /> */}
+        <Route path="/" element={<MainCourse />} />
+
         <Route path="/course/:id" element={<Course />} />
         <Route path="/teacher/:name" element={<Teacher />} />
         <Route path="/students/:coursename" element={<CustomizedTables />} />

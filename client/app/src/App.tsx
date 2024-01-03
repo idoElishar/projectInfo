@@ -1,11 +1,10 @@
 import MyRouter from "./featchers/global/routes/MyRoutes"
-import Footer from "./featchers/global/layout/Footer"
-
+// import Footer from "./featchers/global/layout/Footer"
+import './App.css'
 function App() {
   return (
-    <div className='app' style={{ justifyContent: "center", alignItems: "center" }}>
+    <div className='app' >
       <MyRouter />
-      <Footer />
     </div>
   )
 }
