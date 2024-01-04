@@ -12,10 +12,26 @@ export default function Statistic() {
     ];
 
     return (
-        <Box sx={{ width: '100vw', height: '100vh', padding: '2rem' }}>
-            <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Box sx={{
+            marginTop: '10vh',
+            background: '#f0f0f0', 
+            border: '2px solid yellow',
+            width: '50%',
+        }}>
+            <Grid container spacing={2} sx={{
+                width: '100%',
+                border: '2px solid blue',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: '#f0f0f0' 
+            }}>
                 <Grid item xs={12} md={8}>
-                    <Typography variant="h4" gutterBottom sx={{ textAlign: 'center', marginBottom: '1rem' }}>
+                    <Typography variant="h4" gutterBottom sx={{
+                        textAlign: 'center',
+                        marginBottom: '1rem',
+                        background: '#f0f0f0'
+                    }}>
                         Student Grades Distribution
                     </Typography>
                     <ResponsiveContainer width="100%" height={500}>
@@ -34,5 +50,7 @@ export default function Statistic() {
                 </Grid>
             </Grid>
         </Box>
+        
+        
     );
 }
