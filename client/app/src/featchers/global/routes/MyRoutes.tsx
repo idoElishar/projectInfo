@@ -5,12 +5,12 @@ import Teacher from "../../users/pages/teachers/Teacher";
 import CustomizedTables from "../../users/pages/students/StudentsInCourse";
 import Student from "../../users/pages/students/Student";
 import Header from "../layout/Header";
-import MainCourse from "../../courses/pages/MainCourse";
+import MainCourse from "../../courses/pages/CourseDetailsPage";
 // import Footer from "../layout/Footer";
 function MyRouter(): JSX.Element {
   return (
     <Router>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Courses />} />
         <Route path="/course/:id" element={<MainCourse />} />

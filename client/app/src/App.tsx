@@ -3,9 +3,9 @@ import MyRouter from "./featchers/global/routes/MyRoutes"
 import './App.css'
 function App() {
   return (
-    <div className='app' >
+    <>
       <MyRouter />
-    </div>
+    </>
   )
 }
 

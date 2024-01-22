@@ -1,4 +1,4 @@
-<div className="teacher-info">
+{/* <div className="teacher-info">
   <div className="teacher-details">
     <img
       src="https://oklahoma-council.transforms.svdcdn.com/production/assets/img/Teacher-in-front-of-chalkboard.jpeg?w=3000&h=2000&auto=compress%2Cformat&fit=crop&crop=focalpoint&fp-x=0.3059&fp-y=0.2246&dm=1644340079&s=3020830ce187ed5578c03928dde0156b"
@@ -10,4 +10,21 @@
     <p>Ph.D. in Computer Science</p>
     <p>10 years teaching experience</p>
   </div>
-</div>;
+</div>; */}
+<div className="paper" style={{ border: "2px solid blue" }}>
+<div
+  className="paper-content"
+  style={{ border: "2px solid pink" }}
+>
+  <textarea value={courseInfo} readOnly></textarea>
+</div>
+</div>
+
+<div className="paper" style={{ border: "2px solid blue" }}>
+<div
+  className="paper-content"
+  style={{ border: "2px solid pink" }}
+>
+  <textarea value={courseInfo} readOnly></textarea>
+</div>
+</div>
