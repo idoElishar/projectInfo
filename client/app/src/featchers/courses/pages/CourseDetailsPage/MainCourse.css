@@ -161,6 +161,7 @@ html {
   margin-top: 5%;
   margin-left: 3%;
   padding: 1%;
+  padding-bottom: 3%;
   /* background-color: #f0f0f0; */
 
   margin-right: auto;
@@ -171,6 +172,10 @@ html {
 }
 .teacher-info h2 {
   font-size: large;
+  border: 2px solid yellowgreen;
+}
+.teacher-info p {
+  font-size: medium;
   border: 2px solid yellowgreen;
 }
 .teacher-image {
@@ -185,6 +190,7 @@ html {
   flex-direction: column;
   align-items: center;
   border: 2px solid #f7a2b4;
+
   /* background-color: #f0f0f0; */
 }
 .teacher-details h2,

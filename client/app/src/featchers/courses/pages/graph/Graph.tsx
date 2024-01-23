@@ -16,7 +16,8 @@ const StyledBox = styled.div`
     padding: 2rem;
     border-radius: 10px; // פינות מעוגלות
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.05); // צל עדין
-    width: 90%;
+    width: 95%;
+    height: 70%;
     border:2px solid green;
     justify-content: center;
     align-items: center;

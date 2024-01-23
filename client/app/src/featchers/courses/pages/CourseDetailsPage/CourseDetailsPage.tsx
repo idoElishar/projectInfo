@@ -58,7 +58,7 @@ function CourseDetailsPage() {
   const courseInfo = `What will we learn in this course?\n\n${topics}`;
 
   return (
-    <div style={{ backgroundColor: "#f0f0f0", width: "100%", height: "100%",border:"2px solid red",overflow: "auto" }}>
+    <div style={{ backgroundColor: "#f0f0f0", width: "auto", height: "auto",border:"2px solid red",overflow: "auto" }}>
       <div className="all">
         <div className="main">
           <div style={{ border: "2px solid purple" }}>

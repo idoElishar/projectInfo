@@ -4,11 +4,11 @@ import styled from 'styled-components';
 const Table = styled.table`
   border-collapse: collapse;
 //   margin: 25px auto; 
-  font-size: 0.9em;
+  font-size: 0.5em;
   font-family: 'Alegreya SC', sans-serif; 
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
   width: 20vw; 
-//   height: 20%;
+  height: 20%;
   margin-top: 4rem;
 
 `;
