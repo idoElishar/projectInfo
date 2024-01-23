@@ -7,11 +7,7 @@ const mockData = {
       lecturer: "Israel Israeli"
     }
   };
-// const data: TeacherProps['data'] = {
-//     Course: {
-//         lecturer: 'Israel Israeli'
-//     }
-// };
+
 describe("Teacher component tests", () => {
     test("should display the lecturer's name", () => {
       render(<Teacher data={mockData} />);

@@ -7,6 +7,7 @@ import { gql, useQuery } from "@apollo/client";
 import TitleDes from "../TitleDes/TitleDes";
 // import Teacher from "./teacher";
 import Paper from "../paper/Paper";
+// import { red } from "@mui/material/colors";
 
 function CourseDetailsPage() {
   const { id } = useParams();
@@ -57,7 +58,7 @@ function CourseDetailsPage() {
   const courseInfo = `What will we learn in this course?\n\n${topics}`;
 
   return (
-    <div style={{ backgroundColor: "#f0f0f0", width: "100%", height: "100%" }}>
+    <div style={{ backgroundColor: "#f0f0f0", width: "100%", height: "100%",border:"2px solid red",overflow: "auto" }}>
       <div className="all">
         <div className="main">
           <div style={{ border: "2px solid purple" }}>
@@ -81,13 +82,14 @@ function CourseDetailsPage() {
         style={{
           backgroundColor: "#f0f0f0",
           display: "flex",
-          width: "auto",
+          width: "100%",
           height: "100%",
           border: "2px solid pink",
         }}
       >
-        <Statistic />
       </div>
+      <Statistic />
+
     </div>
   );
 }
