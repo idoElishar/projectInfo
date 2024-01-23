@@ -43,7 +43,7 @@ function CourseDetailsPage() {
   console.log(rating);
 
   const stars = [];
-  for (let i = 0; i <= 5; i++) {
+  for (let i = 0; i < 5; i++) {
     stars.push(
       <span
         key={i}
