@@ -1,12 +1,12 @@
 import "./MainCourse.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Statistic from "./Graph";
-import StudentsTable from "./Table";
+import Statistic from "../graph/Graph";
+import StudentsTable from "../table/Table";
 import { useParams } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
-import TitleDes from "./TitleDes";
-import Teacher from "./teacher";
-import Paper from "./Paper";
+import TitleDes from "../TitleDes/TitleDes";
+// import Teacher from "./teacher";
+import Paper from "../paper/Paper";
 
 function CourseDetailsPage() {
   const { id } = useParams();
@@ -60,18 +60,33 @@ function CourseDetailsPage() {
     <div style={{ backgroundColor: "#f0f0f0", width: "100%", height: "100%" }}>
       <div className="all">
         <div className="main">
-          <div style={{ border: "2px solid purple"}}>
+          <div style={{ border: "2px solid purple" }}>
             <TitleDes data={data} stars={stars} />
-            <div className="center" style={{ border: "2px solid black",display:"flex",flexDirection:"row-reverse" }}>
-            <StudentsTable />
+            <div
+              className="center"
+              data-testid="content-div"
+              style={{
+                border: "2px solid black",
+                display: "flex",
+                flexDirection: "row-reverse",
+              }}
+            >
+              <StudentsTable />
               <Paper courseInfo={courseInfo} />
             </div>
           </div>
         </div>
- 
       </div>
-      <div style={{ backgroundColor: "#f0f0f0", display:"flex", width: "auto", height: "100%", border:"2px solid pink"}}>
-      <Statistic />
+      <div
+        style={{
+          backgroundColor: "#f0f0f0",
+          display: "flex",
+          width: "auto",
+          height: "100%",
+          border: "2px solid pink",
+        }}
+      >
+        <Statistic />
       </div>
     </div>
   );

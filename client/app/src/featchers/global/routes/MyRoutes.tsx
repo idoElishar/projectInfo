@@ -5,7 +5,7 @@ import Teacher from "../../users/pages/teachers/Teacher";
 import CustomizedTables from "../../users/pages/students/StudentsInCourse";
 import Student from "../../users/pages/students/Student";
 import Header from "../layout/Header";
-import MainCourse from "../../courses/pages/CourseDetailsPage";
+import MainCourse from "../../courses/pages/CourseDetailsPage/CourseDetailsPage";
 // import Footer from "../layout/Footer";
 function MyRouter(): JSX.Element {
   return (

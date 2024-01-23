@@ -1,5 +1,5 @@
 import React from "react";
-import Teacher from "./teacher";
+import Teacher from "../teacher/teacher";
 
 interface TitleDesProps {
   data: {
@@ -14,9 +14,15 @@ interface TitleDesProps {
 
 function TitleDes({ data, stars }: TitleDesProps) {
   console.log(stars);
-  
+
   return (
-    <div style={{ border: "2px solid #ffcdd2", display: "flex",flexDirection:"row-reverse" }}>
+    <div
+      style={{
+        border: "2px solid #ffcdd2",
+        display: "flex",
+        flexDirection: "row-reverse",
+      }}
+    >
       <Teacher data={data} />
       <div className="title">
         <div

@@ -65,16 +65,16 @@ const StudentsTable = () => {
                     <Td>Beni David</Td>
                 </Tr>
                 <Tr>
-                    <Td>alice David</Td>
+                    <Td>alicet David</Td>
                 </Tr>
                 <Tr>
-                    <Td>alice David</Td>
+                    <Td>alicee David</Td>
                 </Tr>
                 <Tr>
-                    <Td>alice David</Td>
+                    <Td>alico David</Td>
                 </Tr>
                 <Tr>
-                    <Td>alice David</Td>
+                    <Td>alicer David</Td>
                 </Tr>
                 <Tr>
                     <Td>alice David</Td>
