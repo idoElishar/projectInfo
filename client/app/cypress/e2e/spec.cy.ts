@@ -26,4 +26,5 @@ describe("template spec", () => {
     cy.get(`[data-testid="image-${courseId}"]`)
       .should("have.css", "background-image", `url("${imageUrl}")`);
   });
-});
+}); 
+   
