@@ -106,7 +106,7 @@ function Courses() {
       <StyledGrid>
         {data?.Courses?.map((course:any) => (
           <StyledCard key={course.id}>
-            <StyledCardMedia image={course.imageURL} />
+            <StyledCardMedia data-testid={`image-${course.id}`} image={course.imageURL} />
             <StyledCardContent>
             <h5 data-testid={`course-${course.id}`}>{course.courseName}</h5>
             </StyledCardContent>

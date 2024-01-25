@@ -15,10 +15,15 @@ describe("template spec", () => {
     it('clicking "type" navigates to a new url', () => {
       cy.visit("http://localhost:8002");
       cy.get('[data-testid="button-658b30a13fb443e06e3f336a"]').should("exist").click()
-
-      // Should be on a new URL which
-      // includes '/commands/actions'
       cy.url().should("include", "/course/");
     });
+  });
+  it("should load with the correct image", () => {
+    const imageUrl = 'https://repository-images.githubusercontent.com/37153337/9d0a6780-394a-11eb-9fd1-6296a684b124';
+    const courseId = "658b30a13fb443e06e3f336a"; 
+  
+    cy.visit("http://localhost:8002");
+    cy.get(`[data-testid="image-${courseId}"]`)
+      .should("have.css", "background-image", `url("${imageUrl}")`);
   });
 });
