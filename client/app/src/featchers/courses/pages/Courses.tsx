@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { GET_COURSES_DETAILS } from '../../global/data/datacourses';
 
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchCourses } from '../../../store/teachersSlice';
+import { useQuery } from '@apollo/client';
+import React from 'react';
+
 
 const StyledContainer = styled.div`
   padding: 32px;
@@ -91,16 +92,11 @@ const StyledButton = styled.button`
 
 function Courses() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { Courses, status, error } = useSelector((state) => state?.courses);
+  const { loading, error, data } = useQuery(GET_COURSES_DETAILS);
 
-  useEffect(() => {
-    dispatch(fetchCourses());
-  }, [dispatch]);
-
-  if (status === 'loading') return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-
+  if (loading) console.log("טוען...");
+  if (error) console.error("שגיאה:", error);
+  if (data) console.log("נתוני הקורס:", data.Courses);
   const handleViewCourse = (id:string) => {
     navigate(`/course/${id}`);
   };
@@ -108,14 +104,14 @@ function Courses() {
   return (
     <StyledContainer>
       <StyledGrid>
-        {Courses?.map((course:any) => (
+        {data?.Courses?.map((course:any) => (
           <StyledCard key={course.id}>
             <StyledCardMedia image={course.imageURL} />
             <StyledCardContent>
-              <h5>{course.courseName}</h5>
+            <h5 data-testid={`course-${course.id}`}>{course.courseName}</h5>
             </StyledCardContent>
             <StyledCardActions>
-              <StyledButton onClick={() => handleViewCourse(course.id)}>
+              <StyledButton data-testid={`button-${course.id}`} onClick={() => handleViewCourse(course.id)}>
                 View Course
               </StyledButton>
             </StyledCardActions>

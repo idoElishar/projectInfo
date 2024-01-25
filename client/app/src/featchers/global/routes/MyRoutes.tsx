@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Courses from "../../courses/pages/Courses";
-import Course from "../../courses/pages/Course";
+// import Course from "../../courses/pages/Course";
 import Teacher from "../../users/pages/teachers/Teacher";
 import CustomizedTables from "../../users/pages/students/StudentsInCourse";
 import Student from "../../users/pages/students/Student";
   import MainCourse from "../../courses/pages/lev/CourseDetailsPage/CourseDetailsPage";
-// import Footer from "../layout/Footer";
+import Footer from "../layout/Footer";
 function MyRouter(): JSX.Element {
   return (
     <Router>
@@ -17,7 +17,7 @@ function MyRouter(): JSX.Element {
         <Route path="/students/:coursename" element={<CustomizedTables />} />
         <Route path="/student/:id" element={<Student />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }

@@ -11,7 +11,7 @@
     <p>10 years teaching experience</p>
   </div>
 </div>; */}
-<div className="paper" style={{ border: "2px solid blue" }}>
+{/* <div className="paper" style={{ border: "2px solid blue" }}>
 <div
   className="paper-content"
   style={{ border: "2px solid pink" }}
@@ -27,4 +27,4 @@
 >
   <textarea value={courseInfo} readOnly></textarea>
 </div>
-</div>
+</div> */}

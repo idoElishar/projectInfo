@@ -23,7 +23,7 @@ function TitleDes({ data, stars }: TitleDesProps) {
         flexDirection: "row-reverse",
       }}
     >
-      <Teacher data={data} />
+      <Teacher data={data}   />
       <div className="title">
         <div
           style={{
