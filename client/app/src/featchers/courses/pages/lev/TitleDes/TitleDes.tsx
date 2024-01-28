@@ -1,5 +1,5 @@
 import React from "react";
-import Teacher from "../../teacher/teacher";
+import Teacher from "../teacher/teacher";
 
 interface TitleDesProps {
   data: {

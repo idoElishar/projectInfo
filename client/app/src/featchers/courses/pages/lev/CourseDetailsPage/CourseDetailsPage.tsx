@@ -80,7 +80,7 @@ function CourseDetailsPage() {
                 flexDirection: "row-reverse",
               }}
             >
-              <StudentsTable />
+              <StudentsTable course={data?.Course?.courseName}/>
               <Paper courseInfo={courseInfo} />
             </div>
           </div>

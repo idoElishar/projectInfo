@@ -2,7 +2,6 @@ import { AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material';
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import HomeIcon from "@mui/icons-material/Home";
-import { Button } from "@mui/base";
 import { useNavigate } from 'react-router-dom';
 
 function Header() {
@@ -11,6 +10,9 @@ function Header() {
     const handleMain = () => {
         navigate(`/`);
     };
+    const handleLogin=()=>{
+      navigate(`/login`);
+    }
   return (
     <Box sx={{ flexGrow:   1 }}>
       <AppBar position="static" sx={{ backgroundColor: "#455A64" }}>
@@ -63,8 +65,9 @@ function Header() {
               <MoreIcon />
             </IconButton>
           </Box>
-          <Button
+          <button
             color="inherit"
+            onClick={handleLogin}
             style={{
               marginLeft: "20px",
               backgroundColor: "#E0E0E0",
@@ -77,8 +80,8 @@ function Header() {
               transition: "background-color 0.3s ease, box-shadow 0.3s ease",
             }}
           >
-            Sign Out
-          </Button>
+            Sign In
+          </button>
         </Toolbar>
       </AppBar>
     </Box>

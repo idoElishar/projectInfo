@@ -1,0 +1,66 @@
+/* Login Container */
+.login-container {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Input Container */
+  .input-container {
+    margin-bottom: 10px;
+  }
+  
+  /* Label Style */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Input Style */
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  /* Button Container */
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Teacher Button Style */
+  .teacher-button {
+    flex: 1;
+    margin-right: 5px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  /* Student Button Style */
+  .student-button {
+    flex: 1;
+    margin-left: 5px;
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  /* Button Hover Effect */
+  .teacher-button:hover, .student-button:hover {
+    opacity: 0.9;
+  }
+  

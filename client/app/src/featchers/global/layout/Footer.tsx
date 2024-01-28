@@ -18,10 +18,12 @@ const StyledGrid = styled.div`
 `;
 
 const StyledGridItem = styled.div`
-  padding: 0 15px;
-  flex: 1;
+  padding: 0 0.5%;
+  // flex: 1;
   max-width: 33%;
   min-width: 250px;
+  border: 2px solid pink;
+
 `;
 
 const StyledTypography = styled.div`
@@ -29,6 +31,7 @@ const StyledTypography = styled.div`
   color: #333;
   margin-bottom: 1rem;
   font-weight: bold;
+  border: 2px solid red;
 `;
 
 const StyledBox = styled.div`
@@ -38,7 +41,7 @@ const StyledBox = styled.div`
 
 const StyledLink = styled.a`
   color: #3498db;
-  margin: 0 10px;
+  margin: 0 1.5px;
   transition: color 0.3s;
 
   &:hover {
@@ -49,8 +52,9 @@ const StyledLink = styled.a`
 const IconWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: left;
   margin-top: 10px;
+  text-align: left;
 `;
 
 export default function Footer() {
@@ -61,15 +65,10 @@ export default function Footer() {
           <StyledGridItem>
             <StyledTypography data-testid="cypress-title">
               About Us
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/AmanLogo.svg/800px-AmanLogo.svg.png"
-                alt="idf"
-                height="35px"
-                width="35px"
-                style={{ marginLeft: "10px" }}
-              />
+          
             </StyledTypography>
-            <p>Ido Elishar</p>
+            <p>Created by Ido-David Elishar</p>
+            <br />
             <p>
               Dive into the world of coding with our intensive bootcamp designed
               to equip you with the skills needed to excel in the dynamic field
@@ -86,6 +85,7 @@ export default function Footer() {
           </StyledGridItem>
           <StyledGridItem>
             <StyledTypography>Follow Us</StyledTypography>
+            
             <IconWrapper>
               <StyledLink href="https://www.facebook.com/idfonline/">
                 <Facebook />
