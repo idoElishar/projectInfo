@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { GET_COURSES_DETAILS } from '../../global/data/datacourses';
-
-import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import React from 'react';
-
+import { GET_COURSES_DETAILS } from "../../global/data/datacourses";
+import "./Courses.css";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import React from "react";
 
 const StyledContainer = styled.div`
   padding: 32px;
@@ -45,19 +44,17 @@ const StyledCard = styled.div`
 
   @media (max-width: 768px) {
     max-width: 100%;
-    margin-right: 8px; /* רווח מופחת למסכים קטנים */
+    margin-right: 8px;
   }
 
   @media (max-width: 480px) {
-    margin-right: 0; /* אין רווח למסכים צרים מאוד */
+    margin-right: 0;
   }
 `;
 
-
-
 const StyledCardMedia = styled.div<{ image: string }>`
   height: 180px;
-  background-image: url(${props => props.image});
+  background-image: url(${(props) => props.image});
   background-size: cover;
   background-position: center;
 `;
@@ -88,7 +85,20 @@ const StyledButton = styled.button`
     transform: translateY(-2px);
   }
 `;
+interface Course {
+  name: string;
+  __typename: string; // הוספתי את השדה __typename כי נראה שהוא חלק מהאובייקט שלך
+}
 
+interface Student {
+  id: string;
+  name: string;
+  phone: string;
+  address: string;
+  email: string;
+  courses: Course[];
+  __typename: string;
+}
 
 function Courses() {
   const navigate = useNavigate();
@@ -97,23 +107,66 @@ function Courses() {
   if (loading) console.log("טוען...");
   if (error) console.error("שגיאה:", error);
   if (data) console.log("נתוני הקורס:", data.Courses);
-  const handleViewCourse = (id:string) => {
+  const handleViewCourse = (id: string) => {
     navigate(`/course/${id}`);
   };
+  const value = localStorage.getItem("teacherDetails");
+  if (value) {
+    const teacherDetailes = JSON.parse(value);
+    console.log("data from local: " + teacherDetailes?.course);
+  }
+  const valueStudent = localStorage.getItem("studentDetails");
+  if (valueStudent) {
+    console.log("hidden student data from" + valueStudent);
+  }
+  let studentCourses = [];
+  if (valueStudent) {
+    const studentDetails = JSON.parse(valueStudent);
+    studentCourses = studentDetails.courses.map(
+      (course: Course) => course.name
+    );
+    console.log(studentCourses);
+  }
+  let studentCourseNames: string[] = [];
+if (valueStudent) {
+  const studentDetails = JSON.parse(valueStudent);
+  studentCourseNames = studentDetails.courses.map((course: Course) => course.name);
+}
+console.log("arr"+studentCourseNames);
 
   return (
     <StyledContainer>
       <StyledGrid>
-        {data?.Courses?.map((course:any) => (
-          <StyledCard key={course.id}>
-            <StyledCardMedia data-testid={`image-${course.id}`} image={course.imageURL} />
+        {data?.Courses?.map((course: any) => (
+          <StyledCard key={course.name}>
+            <StyledCardMedia
+              data-testid={`image-${course.id}`}
+              image={course.imageURL}
+            />
             <StyledCardContent>
-            <h5 data-testid={`course-${course.id}`}>{course.courseName}</h5>
+              <h5
+                data-testid={value ? `course-${course.id}` : ""}
+                className={
+                  value && JSON.parse(value).course === course.courseName
+                    ? "your-course"
+                    : ""
+                }
+              >
+                {value && JSON.parse(value).course === course.courseName
+                  ? "Your course: "
+                  : ""}{" "}
+                {course.courseName}
+              </h5>
             </StyledCardContent>
             <StyledCardActions>
-              <StyledButton data-testid={`button-${course.id}`} onClick={() => handleViewCourse(course.id)}>
-                View Course
-              </StyledButton>
+  
+                <StyledButton
+                  data-testid={`button-${course.name}`}
+                  onClick={() => handleViewCourse(course.name)}
+                >
+                  View Course
+                </StyledButton>
+              
             </StyledCardActions>
           </StyledCard>
         ))}

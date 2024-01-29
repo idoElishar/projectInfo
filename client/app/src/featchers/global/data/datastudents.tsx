@@ -2,7 +2,6 @@ import { gql } from "@apollo/client";
 
 export const students = gql`
 query GetStudentsDetails {
-    
         findAllStudents{
           id
           name
@@ -12,5 +11,4 @@ query GetStudentsDetails {
           courses{name}
         }
       }
-
 `;

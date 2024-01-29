@@ -1,90 +1,139 @@
-import { AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material';
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import MoreIcon from "@mui/icons-material/MoreVert";
-import HomeIcon from "@mui/icons-material/Home";
-import { useNavigate } from 'react-router-dom';
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import {
+  Home as HomeIcon,
+  AccountCircle,
+  MoreVert as MoreIcon,
+} from "@mui/icons-material";
+
+const StyledAppBar = styled.div`
+  background-color: #455a64;
+  color: white;
+`;
+
+const StyledToolbar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+`;
+
+const LeftSection = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const StyledIconButton = styled.button`
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 24px;
+`;
+
+const Title = styled.h3`
+  color: white;
+  margin: 0;
+  display: block;
+`;
+
+const SignInButton = styled.button`
+  background-color: #e0e0e0;
+  color: #455a64;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: none;
+  font-weight: bold;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    background-color: #cfd8dc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+`;
 
 function Header() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleMain = () => {
-        navigate(`/`);
-    };
-    const handleLogin=()=>{
-      navigate(`/login`);
+  const handleMain = () => {
+    printLocalStorage();
+    navigate(`/`);
+  };
+  const handleLogin = () => {
+    navigate(`/loginstudent`);
+  };
+  const disconnect = () => {
+    localStorage.removeItem("teacherDetails");
+    localStorage.removeItem("teacher");
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("studentDetails");
+
+    navigate(`/`);
+  };
+  const printLocalStorage = () => {
+    console.log("Local Storage Content:");
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key) {
+        const value = localStorage.getItem(key);
+        console.log(`${key}: ${value}`);
+      }
     }
+  };
+  const value = localStorage.getItem("teacherDetails");
+  if (value) {
+    const teacherDetailes = JSON.parse(value);
+    console.log("data from local: " + teacherDetailes?.name);
+  }
+
+  const valueStudent = localStorage.getItem("studentDetails");
+if (valueStudent) {
+  console.log("hidden data from");
+  
+}
+  if (valueStudent) {
+    const studentDetailes = JSON.parse(valueStudent);
+    console.log("data from local: " + studentDetailes?.name);
+  }
+
   return (
-    <Box sx={{ flexGrow:   1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "#455A64" }}>
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            <h3>{"welcome Guest"}</h3>
-          </Typography>
+    <StyledAppBar>
+      <StyledToolbar>
+        <LeftSection>
+        <Title>
+            Hello{" "}
+            {value
+              ? "Teacher " + JSON.parse(value)?.name
+              : valueStudent
+              ? "Student " + JSON.parse(valueStudent)?.name
+              : "Guest"}
+          </Title>
+        </LeftSection>
+        <RightSection>
+          <StyledIconButton>
+            <AccountCircle />
+          </StyledIconButton>
+          <StyledIconButton>
+            <MoreIcon />
+          </StyledIconButton>
+          <StyledIconButton onClick={handleMain}>
+            <HomeIcon />
+          </StyledIconButton>
+          {!value &&!valueStudent&& <SignInButton onClick={handleLogin}>Sign In</SignInButton>}
+          {value && <SignInButton onClick={disconnect}>Sign Out</SignInButton>}
+          {valueStudent && <SignInButton onClick={disconnect}>Sign Out</SignInButton>}
 
-          <Box sx={{ flexGrow: 1 }} />
-
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-          
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              color="inherit"
-              onClick={handleMain}
-            >
-              <HomeIcon />
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </Box>
-          <button
-            color="inherit"
-            onClick={handleLogin}
-            style={{
-              marginLeft: "20px",
-              backgroundColor: "#E0E0E0",
-              color: "#455A64",
-              borderRadius: "5px",
-              padding: "5px 10px",
-              border: "1px solid #B0BEC5",
-              fontWeight: "bold",
-              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-              transition: "background-color 0.3s ease, box-shadow 0.3s ease",
-            }}
-          >
-            Sign In
-          </button>
-        </Toolbar>
-      </AppBar>
-    </Box>
+        </RightSection>
+      </StyledToolbar>
+    </StyledAppBar>
   );
 }
 

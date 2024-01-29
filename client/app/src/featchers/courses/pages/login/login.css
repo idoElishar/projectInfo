@@ -1,6 +1,7 @@
 /* Login Container */
 .login-container {
-    max-width: 300px;
+    max-width: 70%;
+    height: 100%;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -38,7 +39,7 @@
   /* Teacher Button Style */
   .teacher-button {
     flex: 1;
-    margin-right: 5px;
+    margin: 5px;
     padding: 10px 15px;
     background-color: #007bff;
     color: #fff;
@@ -50,7 +51,7 @@
   /* Student Button Style */
   .student-button {
     flex: 1;
-    margin-left: 5px;
+    margin: 5px;
     padding: 10px 15px;
     background-color: #28a745;
     color: #fff;

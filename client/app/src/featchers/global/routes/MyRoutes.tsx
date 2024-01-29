@@ -7,7 +7,9 @@ import CustomizedTables from "../../users/pages/students/StudentsInCourse";
 import Student from "../../users/pages/students/Student";
   import MainCourse from "../../courses/pages/lev/CourseDetailsPage/CourseDetailsPage";
 import Footer from "../layout/Footer";
-import Login from "../../courses/pages/login/login";
+import Login from "../../courses/pages/login/loginTeach";
+import LoginStudent from "../../courses/pages/login/loginStudent";
+
 function MyRouter(): JSX.Element {
   return (
     <Router>
@@ -18,7 +20,9 @@ function MyRouter(): JSX.Element {
         <Route path="/teacher/:name" element={<Teacher />} />
         <Route path="/students/:coursename" element={<CustomizedTables />} />
         <Route path="/student/:id" element={<Student />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/loginteacher" element={<Login />} />
+        <Route path="/loginstudent" element={<LoginStudent />} />
+
 
       </Routes>
       <Footer />
