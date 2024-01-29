@@ -3,11 +3,11 @@ import { Facebook, Instagram, Twitter } from "@mui/icons-material";
 
 const StyledFooter = styled.footer`
   background-color: #bdbdbd;
-  padding: 4rem 0;
+  padding: 2.5rem 0;
 `;
 
 const StyledContainer = styled.div`
-  max-width: 1200px;
+  // max-width: 1200px;
   margin: 0 auto;
 `;
 
@@ -20,9 +20,9 @@ const StyledGrid = styled.div`
 const StyledGridItem = styled.div`
   padding: 0 0.5%;
   // flex: 1;
-  max-width: 33%;
+  max-width: 22%;
   min-width: 250px;
-  border: 2px solid pink;
+  // border: 2px solid pink;
 
 `;
 
@@ -31,7 +31,7 @@ const StyledTypography = styled.div`
   color: #333;
   margin-bottom: 1rem;
   font-weight: bold;
-  border: 2px solid red;
+  // border: 2px solid red;
 `;
 
 const StyledBox = styled.div`

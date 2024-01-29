@@ -9,7 +9,7 @@ const Table = styled.table`
   font-size: 0.5em;
   font-family: "Alegreya SC", sans-serif;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  width: 20vw;
+  width: 15%;
   height: 20%;
   margin-top: 4rem;
 `;

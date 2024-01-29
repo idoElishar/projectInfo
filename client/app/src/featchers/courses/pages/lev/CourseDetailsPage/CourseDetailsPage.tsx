@@ -63,19 +63,19 @@ function CourseDetailsPage() {
         backgroundColor: "#f0f0f0",
         width: "auto",
         height: "auto",
-        border: "2px solid red",
+        // border: "2px solid red",
         overflow: "auto",
       }}
     >
       <div className="all">
         <div className="main">
-          <div style={{ border: "2px solid purple" }}>
+          <div >
             <TitleDes data={data} stars={stars} />
             <div
               className="center"
               data-testid="content-div"
               style={{
-                border: "2px solid black",
+                // border: "2px solid black",
                 display: "flex",
                 flexDirection: "row-reverse",
               }}
@@ -92,7 +92,7 @@ function CourseDetailsPage() {
           display: "flex",
           width: "100%",
           height: "100%",
-          border: "2px solid pink",
+          // border: "2px solid pink",
         }}
       ></div>
       <Statistic />

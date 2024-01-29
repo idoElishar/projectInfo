@@ -5,11 +5,11 @@ interface courseInterface{
 }
 function Paper({courseInfo}:courseInterface) {
   return (
-    <div className="paper" style={{ border: "2px solid blue" }}>
+    <div className="paper" >
     <div
       className="paper-content"
       data-testid="content-div"
-      style={{ border: "2px solid pink" }}
+      // style={{ border: "2px solid pink" }}
     >
       <textarea value={courseInfo} readOnly></textarea>
     </div>

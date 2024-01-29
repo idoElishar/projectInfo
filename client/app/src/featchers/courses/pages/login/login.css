@@ -1,67 +1,96 @@
-/* Login Container */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fc;
+  box-sizing: border-box; 
+  max-width: 100vw; 
+  overflow-x: hidden; 
+}
+
+
 .login-container {
-    max-width: 70%;
-    height: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Input Container */
-  .input-container {
-    margin-bottom: 10px;
-  }
-  
-  /* Label Style */
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  /* Input Style */
-  input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  /* Button Container */
+  max-width: 50%; 
+  margin: 5vh auto; 
+  padding: 3vw; 
+  border: 1px solid #ddd;
+  border-radius: 1rem; 
+  background-color: #fff;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+margin-bottom: 6vh;
+}
+.login-container h2 {
+  margin: 0 5vw; 
+  margin-bottom: 6vh;
+  word-wrap: break-word; 
+  font-size: 1.5rem; 
+  text-align: center; 
+  overflow-wrap: break-word; 
+}
+
+.input-container {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  box-shadow: inset 0 0.1rem 0.3rem rgba(0,0,0,0.1);
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #007bff;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column; 
+  gap: 0.5rem;
+}
+
+.teacher-button, .student-button {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.teacher-button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.student-button {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.teacher-button:hover, .student-button:hover {
+  opacity: 0.8;
+  transform: translateY(-0.2rem);
+}
+
+/* עיצוב למסכים גדולים יותר */
+@media screen and (min-width: 600px) {
   .button-container {
-    display: flex;
-    justify-content: space-between;
+    flex-direction: row; 
   }
-  
-  /* Teacher Button Style */
-  .teacher-button {
-    flex: 1;
-    margin: 5px;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+  .login-container {
+    width: 90%; /* רוחב עוד גדול יותר למסכים צרים מאוד */
+    padding: 10vw; /* רווח פנימי גדול יותר */
   }
-  
-  /* Student Button Style */
-  .student-button {
-    flex: 1;
-    margin: 5px;
-    padding: 10px 15px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+
+  .button-container {
+    flex-direction: column; /* כפתורים בעמודה במקום בשורה */
   }
-  
-  /* Button Hover Effect */
-  .teacher-button:hover, .student-button:hover {
-    opacity: 0.9;
-  }
-  
+}

@@ -18,7 +18,7 @@ function TitleDes({ data, stars }: TitleDesProps) {
   return (
     <div
       style={{
-        border: "2px solid #ffcdd2",
+        // border: "2px solid #ffcdd2",
         display: "flex",
         flexDirection: "row-reverse",
       }}
@@ -27,17 +27,17 @@ function TitleDes({ data, stars }: TitleDesProps) {
       <div className="title">
         <div
           style={{
-            border: "2px solid orange",
+            // border: "2px solid orange",
             display: "flex",
             overflow: "visible",
           }}
         >
           <h2>{data?.Course?.courseName} Course</h2>
         </div>
-        <div className="stars" style={{ border: "2px solid orange" }}>
+        <div className="stars" >
           {stars}
         </div>
-        <div className="text" style={{ border: "2px solid green" }}>
+        <div className="text" >
           {data?.Course?.description}
         </div>
       </div>

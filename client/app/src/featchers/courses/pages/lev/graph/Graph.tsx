@@ -18,7 +18,7 @@ const StyledBox = styled.div`
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.05); // צל עדין
     width: 93%;
     height: 70%;
-    border:2px solid green;
+    // border:2px solid green;
     justify-content: center;
     align-items: center;
     text-align: center;

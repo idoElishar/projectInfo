@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { GET_COURSES_DETAILS } from "../../global/data/datacourses";
+import { GET_COURSES_DETAILS } from "../../../global/data/datacourses";
 import "./Courses.css";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
@@ -7,11 +7,11 @@ import { useQuery } from "@apollo/client";
 import React from "react";
 
 const StyledContainer = styled.div`
-  padding: 32px;
-  width: 100%;
+  padding: 2%;
+  width: 97%;
   height: 100%;
-  background-color: #f0f0f0; // הוסף את צבע הרקע שתרצה כאן
-  margin: 0 auto;
+  background-color: #f0f0f0; 
+  margin: auto auto;
 `;
 
 const StyledGrid = styled.div`
@@ -27,6 +27,7 @@ const StyledGrid = styled.div`
     grid-template-columns: 1fr;
   }
 `;
+
 const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,17 +40,16 @@ const StyledCard = styled.div`
   transition: box-shadow 0.3s;
 
   &:hover {
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); 
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
   }
 
   @media (max-width: 768px) {
     max-width: 100%;
-    margin-right: 8px;
+    margin-right: 2.9rem;
   }
 
-  @media (max-width: 480px) {
-    margin-right: 0;
-  }
+  
 `;
 
 const StyledCardMedia = styled.div<{ image: string }>`
@@ -85,20 +85,35 @@ const StyledButton = styled.button`
     transform: translateY(-2px);
   }
 `;
-interface Course {
-  name: string;
-  __typename: string; // הוספתי את השדה __typename כי נראה שהוא חלק מהאובייקט שלך
-}
+const StyledParagraph = styled.p`
+  color: #ff6347; 
+  font-size: 16px; 
+  text-align: center; 
+  padding: 10px; 
+  border: 1px solid #ff6347; 
+  border-radius: 8px; 
+  background-color: #fff0f0;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+`;
+const StyledTitle = styled.h1`
+  font-size: 3rem; // גודל פונט גדול יותר
+  color: #fff; // צבע פונט בהיר
+  text-align: center;
+  background: linear-gradient(135deg, #1abc9c, #16a085); // גרדיאנט צבעים
+  padding: 30px; // רווח גדול יותר
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); // צל יותר מתוחכם
+  margin-bottom: 3rem;
+  margin-right: 2rem;
 
-interface Student {
-  id: string;
-  name: string;
-  phone: string;
-  address: string;
-  email: string;
-  courses: Course[];
-  __typename: string;
-}
+  font-family: 'Arial', sans-serif; // שינוי גופן
+  letter-spacing: 1px; // מרווח בין האותיות
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); // צל טקסט
+  transition: transform 0.3s ease-in-out; // אנימציה
+  &:hover {
+    transform: scale(1.05); // אפקט הגדלה בעת העברת העכבר
+  }
+`;
 
 function Courses() {
   const navigate = useNavigate();
@@ -107,35 +122,49 @@ function Courses() {
   if (loading) console.log("טוען...");
   if (error) console.error("שגיאה:", error);
   if (data) console.log("נתוני הקורס:", data.Courses);
+
   const handleViewCourse = (id: string) => {
     navigate(`/course/${id}`);
   };
+
   const value = localStorage.getItem("teacherDetails");
   if (value) {
     const teacherDetailes = JSON.parse(value);
     console.log("data from local: " + teacherDetailes?.course);
   }
+
   const valueStudent = localStorage.getItem("studentDetails");
   if (valueStudent) {
     console.log("hidden student data from" + valueStudent);
   }
+
   let studentCourses = [];
   if (valueStudent) {
     const studentDetails = JSON.parse(valueStudent);
     studentCourses = studentDetails.courses.map(
-      (course: Course) => course.name
+      (course: any) => course.name
     );
     console.log(studentCourses);
   }
+
   let studentCourseNames: string[] = [];
-if (valueStudent) {
-  const studentDetails = JSON.parse(valueStudent);
-  studentCourseNames = studentDetails.courses.map((course: Course) => course.name);
-}
-console.log("arr"+studentCourseNames);
+  if (valueStudent) {
+    const studentDetails = JSON.parse(valueStudent);
+    studentCourseNames = studentDetails.courses.map((course: any) => course.name);
+  }
+
+  const commonCourses = data?.Courses.filter((course: any) =>
+    studentCourseNames.some(studentCourseName =>
+      course.courseName.includes(studentCourseName) || studentCourseName.includes(course.courseName)
+    )
+  ).map((course: any) => course.courseName);
+
+  console.log("מערך משותף:", commonCourses);
 
   return (
     <StyledContainer>
+            <StyledTitle>Welcome to our courses</StyledTitle>
+
       <StyledGrid>
         {data?.Courses?.map((course: any) => (
           <StyledCard key={course.name}>
@@ -159,14 +188,28 @@ console.log("arr"+studentCourseNames);
               </h5>
             </StyledCardContent>
             <StyledCardActions>
-  
+              {value && (
                 <StyledButton
                   data-testid={`button-${course.name}`}
-                  onClick={() => handleViewCourse(course.name)}
+                  onClick={() => handleViewCourse(course.id)}
                 >
                   View Course
                 </StyledButton>
-              
+              )}
+
+              {
+                commonCourses.includes(course.courseName) ? (
+                  <StyledButton
+                    data-testid={`button-${course.name}`}
+                    onClick={() => handleViewCourse(course.id)}
+                  >
+                    View Course
+                  </StyledButton>
+                ) : (
+                  <StyledParagraph>You are not enrolled in this course</StyledParagraph>
+                )
+              }
+
             </StyledCardActions>
           </StyledCard>
         ))}
