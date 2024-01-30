@@ -138,7 +138,7 @@ function Courses() {
     console.log("hidden student data from" + valueStudent);
   }
 
-  let studentCourses = [];
+  let studentCourses: never[] = [];
   if (valueStudent) {
     const studentDetails = JSON.parse(valueStudent);
     studentCourses = studentDetails.courses.map(
@@ -198,6 +198,7 @@ function Courses() {
               )}
 
               {
+
                 commonCourses.includes(course.courseName) ? (
                   <StyledButton
                     data-testid={`button-${course.name}`}
@@ -205,10 +206,11 @@ function Courses() {
                   >
                     View Course
                   </StyledButton>
-                ) : (
+                ) : 
+             (  !value&& (
                   <StyledParagraph>You are not enrolled in this course</StyledParagraph>
                 )
-              }
+              )}
 
             </StyledCardActions>
           </StyledCard>
