@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import React from "react";
+import { bannerCard, class_scrolling_container, hide_scrollbar } from "./style";
+
 
 const StyledContainer = styled.div`
   padding: 2%;
@@ -18,7 +20,7 @@ const StyledGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 24px;
-
+margin-bottom: 4rem;
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
@@ -163,9 +165,33 @@ function Courses() {
 
   return (
     <StyledContainer>
-            <StyledTitle>Welcome to our courses</StyledTitle>
+        <div
+            className="hide-scrollbar"
+            style={hide_scrollbar}
+          >
+            <div
+              className="scrolling-container"
+              style={class_scrolling_container}
+            >
+              { data?.Courses.map((banner:any, index:any) => (
+                <div
+                  key={index}
+                  style={bannerCard}
+                >
+                  <img
+                    className="banner-image"
+                    src={banner.imageURL}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+                  <StyledTitle>Welcome to our courses</StyledTitle>
+
+      
 
       <StyledGrid>
+     
         {data?.Courses?.map((course: any) => (
           <StyledCard key={course.name}>
             <StyledCardMedia
@@ -216,6 +242,7 @@ function Courses() {
           </StyledCard>
         ))}
       </StyledGrid>
+    
     </StyledContainer>
   );
 }

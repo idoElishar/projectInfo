@@ -33,6 +33,7 @@ h2 {
   line-height: 1.2;
   text-transform: capitalize;
   /* border: 2px solid #8a34bb; */
+  margin-bottom: 0.5vh;
 }
 .checked {
   color: orange;
@@ -44,6 +45,7 @@ h2 {
   position: relative; 
   /* border: 2px solid #dabeeb; */
   margin-top: 1.5rem;
+  /* margin-bottom: 1.5rem; */
 }
 .right {
   flex-direction: column;
@@ -53,6 +55,7 @@ h2 {
   flex-direction: row;
   margin-left: 2vh;
   width: min-content;
+  /* margin-top: 150px; */
 }
 html {
   margin: 0px;

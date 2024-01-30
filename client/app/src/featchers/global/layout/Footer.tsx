@@ -4,6 +4,8 @@ import { Facebook, Instagram, Twitter } from "@mui/icons-material";
 const StyledFooter = styled.footer`
   background-color: #bdbdbd;
   padding: 2.5rem 0;
+  // min-height: 100vh; 
+
 `;
 
 const StyledContainer = styled.div`
@@ -20,18 +22,19 @@ const StyledGrid = styled.div`
 const StyledGridItem = styled.div`
   padding: 0 0.5%;
   // flex: 1;
-  max-width: 22%;
+  max-width: 25%;
   min-width: 250px;
   // border: 2px solid pink;
-
 `;
 
 const StyledTypography = styled.div`
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: #333;
   margin-bottom: 1rem;
   font-weight: bold;
   // border: 2px solid red;
+  font-family: "Arial", sans-serif;
+
 `;
 
 const StyledBox = styled.div`
@@ -56,6 +59,40 @@ const IconWrapper = styled.div`
   margin-top: 10px;
   text-align: left;
 `;
+const StyledAboutSection = styled.div`
+  border-radius: 8px;
+  font-family: "Arial", sans-serif;
+  margin: 1em 0;
+  
+`;
+
+const StyledTitle = styled.h4`
+  color: #2c3e50; 
+  font-size: 1.1em; 
+  margin-top: 1em; 
+  // text-align: center; 
+  font-family: "Times New Roman", Times, serif;
+
+`;
+
+const StyledParagraph = styled.p`
+  color: #333; 
+  line-height: 1.3em;
+  font-size: 1em; 
+  margin-bottom: 1em; 
+  text-align: justify; 
+  font-family: "Times New Roman", Times, serif;
+
+`;
+const StyledParagraph1 = styled.p`
+  color: #333; 
+  line-height: 1.5em;
+  font-size: 1em; 
+  // margin-bottom: 1em; 
+  text-align: justify; 
+  font-family: "Times New Roman", Times, serif;
+
+`;
 
 export default function Footer() {
   return (
@@ -65,27 +102,29 @@ export default function Footer() {
           <StyledGridItem>
             <StyledTypography data-testid="cypress-title">
               About Us
-          
             </StyledTypography>
-            <p>Created by Ido-David Elishar</p>
-            <br />
-            <p>
-              Dive into the world of coding with our intensive bootcamp designed
-              to equip you with the skills needed to excel in the dynamic field
-              of software development. Whether you're a beginner or looking to
-              enhance your existing skills, our program is crafted to meet you
-              where you are and take you to the next level.
-            </p>
+            <StyledAboutSection>
+              <StyledParagraph>
+                Dive into the world of coding with our intensive bootcamp
+                designed to equip you with the skills needed to excel in the
+                dynamic field of software development. Whether you're a beginner
+                or looking to enhance your existing skills, our program is
+                crafted to meet you where you are and take you to the next
+                level.
+              </StyledParagraph>
+              <StyledTitle>Created by Ido-David Elishar</StyledTitle>
+
+            </StyledAboutSection>
           </StyledGridItem>
           <StyledGridItem>
             <StyledTypography>Contact Us</StyledTypography>
-            <p>Hatsira 13 Petah Tikva, Israel</p>
-            <p>Email: Kapatz@digital.idf.il</p>
-            <p>Phone: 1111</p>
+            <StyledParagraph1>Hatsira 13 Petah Tikva, Israel</StyledParagraph1>
+            <StyledParagraph1>Email: Kapatz@digital.idf.il</StyledParagraph1>
+            <StyledParagraph1>Phone: 1111</StyledParagraph1>
           </StyledGridItem>
           <StyledGridItem>
             <StyledTypography>Follow Us</StyledTypography>
-            
+
             <IconWrapper>
               <StyledLink href="https://www.facebook.com/idfonline/">
                 <Facebook />
